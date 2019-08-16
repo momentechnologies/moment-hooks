@@ -1,0 +1,48 @@
+{
+  "name": "moment-hooks",
+  "version": "0.1.0",
+  "description": "Incredibly awesome hooks",
+  "keywords": ["react", "react-hooks", "momentech", "hooks", "query"],
+  "author": "Max Moeschinger",
+  "license": "ISC",
+  "homepage": "https://github.com/momentechnologies/moment-hooks#readme",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib/**/*"
+  ],
+  "scripts": {
+    "test": "jest --config jestconfig.json",
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/momentechnologies/moment-hooks.git"
+  },
+  "bugs": {
+    "url": "https://github.com/momentechnologies/moment-hooks/issues"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.17",
+    "@types/react": "^16.9.2",
+    "@types/react-router-dom": "^4.3.4",
+    "jest": "^24.9.0",
+    "prettier": "^1.18.2",
+    "ts-jest": "^24.0.2",
+    "tslint": "^5.18.0",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.5.3"
+  },
+  "dependencies": {
+    "query-string": "^6.8.2",
+    "react": "^16.9.0",
+    "react-router-dom": "^5.0.1"
+  }
+}
