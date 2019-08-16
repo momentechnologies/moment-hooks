@@ -35,14 +35,18 @@
     "@types/react-router-dom": "^4.3.4",
     "jest": "^24.9.0",
     "prettier": "^1.18.2",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
     "ts-jest": "^24.0.2",
     "tslint": "^5.18.0",
     "tslint-config-prettier": "^1.18.0",
     "typescript": "^3.5.3"
   },
   "dependencies": {
-    "query-string": "^6.8.2",
-    "react": "^16.9.0",
-    "react-router-dom": "^5.0.1"
+    "query-string": "^6.8.2"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0"
   }
 }
