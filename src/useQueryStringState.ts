@@ -1,85 +1,87 @@
-import React from "react";
-import queryString from "query-string";
-import { __RouterContext } from "react-router-dom";
+import queryString from 'query-string';
+import React from 'react';
+import { __RouterContext } from 'react-router-dom';
 
-type StateType = {
-  [key: string]: any;
-};
+interface IState {
+    [key: string]: any;
+}
 
 export default (
-  defaultValues = {},
-  options: {
-    toString: {
-      [key: string]: (data: any) => string;
-    };
-    fromString: {
-      [key: string]: (data: string) => any;
-    };
-  } = {
-    toString: {},
-    fromString: {}
-  }
+    defaultValues = {},
+    options: {
+        fromString: {
+            [key: string]: (data: string) => any;
+        };
+        toString: {
+            [key: string]: (data: any) => string;
+        };
+    } = {
+        fromString: {},
+        toString: {},
+    }
 ) => {
-  if (!__RouterContext) {
-    throw new Error("useQueryString may only be used with react-router@^5.");
-  }
+    if (!__RouterContext) {
+        throw new Error(
+            'useQueryString may only be used with react-router@^5.'
+        );
+    }
 
-  const context = React.useContext(__RouterContext);
+    const context = React.useContext(__RouterContext);
 
-  if (!context) {
-    throw new Error(
-      "useQueryString may only be called within a <Router /> context."
-    );
-  }
+    if (!context) {
+        throw new Error(
+            'useQueryString may only be called within a <Router /> context.'
+        );
+    }
 
-  const parsedQueryString = queryString.parse(
-    context.location.search
-  ) as StateType;
+    const parsedQueryString = queryString.parse(
+        context.location.search
+    ) as IState;
 
-  const parsedQuery = JSON.parse(
-    JSON.stringify(
-      Object.keys(parsedQueryString).reduce(
-        (parsedQuery, key) => {
-          let value = parsedQueryString[key];
+    const parsedQuery = JSON.parse(
+        JSON.stringify(
+            Object.keys(parsedQueryString).reduce(
+                (newParsedQuery, key) => {
+                    let value = parsedQueryString[key];
 
-          if (options.fromString[key]) {
-            value = options.fromString[key](value);
-          }
+                    if (options.fromString[key]) {
+                        value = options.fromString[key](value);
+                    }
 
-          parsedQuery[key] = value;
+                    newParsedQuery[key] = value;
 
-          return parsedQuery;
-        },
-        {} as StateType
-      )
-    )
-  );
-
-  const [state, setState] = React.useState<StateType>({
-    ...defaultValues,
-    ...parsedQuery
-  });
-
-  React.useEffect(() => {
-    context.history.push({
-      ...context.location,
-      search: queryString.stringify(
-        Object.keys(state).reduce(
-          (newState, key) => {
-            let value = state[key];
-            if (options.toString[key]) {
-              value = options.toString[key](value);
-            }
-
-            newState[key] = value;
-
-            return newState;
-          },
-          {} as StateType
+                    return newParsedQuery;
+                },
+                {} as IState
+            )
         )
-      )
-    });
-  }, [state]); // eslint-disable-line
+    );
 
-  return [state, (state: StateType) => setState(state)];
+    const [state, setState] = React.useState<IState>({
+        ...defaultValues,
+        ...parsedQuery,
+    });
+
+    React.useEffect(() => {
+        context.history.push({
+            ...context.location,
+            search: queryString.stringify(
+                Object.keys(state).reduce(
+                    (newState, key) => {
+                        let value = state[key];
+                        if (options.toString[key]) {
+                            value = options.toString[key](value);
+                        }
+
+                        newState[key] = value;
+
+                        return newState;
+                    },
+                    {} as IState
+                )
+            ),
+        });
+    }, [state]); // eslint-disable-line
+
+    return [state, (newState: IState) => setState(newState)];
 };
