@@ -1,1 +1,1 @@
-export { default as useQueryStringState } from "./useQueryStringState";
+export { default as useQueryStringState } from './useQueryStringState';
