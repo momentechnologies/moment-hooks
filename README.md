@@ -1,5 +1,7 @@
 # moment-hooks
 
+[![npm version](https://badge.fury.io/js/moment-hooks.svg)](https://badge.fury.io/js/moment-hooks)
+
 A module to group all the best hooks togheter.
 
 ## useQueryStringState
