@@ -39,3 +39,18 @@ const [reportSettings, setReportSettings] = useQueryStringState(
         }
     );
 ```
+
+## useWhyDidYouUpdate
+
+logs the reason why a component has been updated
+
+### Parameters
+
+1. The name of the component
+2. The props
+
+```Javascript
+import { useWhyDidYouUpdate } from 'moment-hooks';
+
+useWhyDidYouUpdate('Register', props);
+```
