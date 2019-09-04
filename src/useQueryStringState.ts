@@ -38,23 +38,19 @@ export default (
         context.location.search
     ) as IState;
 
-    const parsedQuery = JSON.parse(
-        JSON.stringify(
-            Object.keys(parsedQueryString).reduce(
-                (newParsedQuery, key) => {
-                    let value = parsedQueryString[key];
+    const parsedQuery = Object.keys(parsedQueryString).reduce(
+        (newParsedQuery, key) => {
+            let value = parsedQueryString[key];
 
-                    if (options.fromString[key]) {
-                        value = options.fromString[key](value);
-                    }
+            if (options.fromString[key]) {
+                value = options.fromString[key](value);
+            }
 
-                    newParsedQuery[key] = value;
+            newParsedQuery[key] = value;
 
-                    return newParsedQuery;
-                },
-                {} as IState
-            )
-        )
+            return newParsedQuery;
+        },
+        {} as IState
     );
 
     const [state, setState] = React.useState<IState>({
