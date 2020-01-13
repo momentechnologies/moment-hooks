@@ -75,7 +75,7 @@ useOutsideClick(ref, () => console.log("On click outside"));
 
 ## useDebounce
 
-calls a function when a click occurs on the outside of the ref element
+Reduce the amount of time is updated. Useful when dealing with fetch.
 
 ### Parameters
 
@@ -88,4 +88,14 @@ import { useDebounce } from 'moment-hooks';
 
 const [inputValue, setInputValue] = React.useState("A value");
 const debouncedInputValue = useDebounce(inputValue, 100);
+```
+
+## useWindowSize
+
+returns the size of the window
+
+```Javascript
+import { useWindowSize } from 'moment-hooks';
+
+const { width, height } = useWindowSize();
 ```
