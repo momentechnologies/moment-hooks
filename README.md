@@ -56,3 +56,19 @@ import { useWhyDidYouUpdate } from 'moment-hooks';
 
 useWhyDidYouUpdate('Register', props);
 ```
+
+## useOutsideClick
+
+calls a function when a click occurs on the outside of the ref element
+
+### Parameters
+
+1. The ref of the element
+2. The function that is called when a click occurs outside the ref
+
+```Javascript
+import { useOutsideClick } from 'moment-hooks';
+
+const ref = React.useRef();
+useOutsideClick(ref, () => console.log("On click outside"));
+```
