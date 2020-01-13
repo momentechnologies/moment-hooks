@@ -72,3 +72,20 @@ import { useOutsideClick } from 'moment-hooks';
 const ref = React.useRef();
 useOutsideClick(ref, () => console.log("On click outside"));
 ```
+
+## useDebounce
+
+calls a function when a click occurs on the outside of the ref element
+
+### Parameters
+
+1. The value to debounce
+2. The debounce delay in milliseconds. This is the time where no update must ocure to inputValue in order for the
+   debounced value to be updated
+
+```Javascript
+import { useDebounce } from 'moment-hooks';
+
+const [inputValue, setInputValue] = React.useState("A value");
+const debouncedInputValue = useDebounce(inputValue, 100);
+```
