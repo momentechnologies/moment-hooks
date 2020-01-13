@@ -62,19 +62,16 @@ export default (
         context.history.push({
             ...context.location,
             search: queryString.stringify(
-                Object.keys(state).reduce(
-                    (newState, key) => {
-                        let value = state[key];
-                        if (options.toString[key]) {
-                            value = options.toString[key](value);
-                        }
+                Object.keys(state).reduce((newState, key) => {
+                    let value = state[key];
+                    if (options.toString[key]) {
+                        value = options.toString[key](value);
+                    }
 
-                        newState[key] = value;
+                    newState[key] = value;
 
-                        return newState;
-                    },
-                    {} as IState
-                )
+                    return newState;
+                }, {} as IState)
             ),
         });
     }, [state]); // eslint-disable-line
