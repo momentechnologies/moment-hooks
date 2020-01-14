@@ -7,7 +7,7 @@ export default <T = any>(initialArray: T[]) => {
     }, []);
 
     const removeIndex = React.useCallback(
-        index =>
+        (index: number) =>
             setValue(v => {
                 const copy = v.slice();
                 copy.splice(index, 1);
