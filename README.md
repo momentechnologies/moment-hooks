@@ -5,8 +5,6 @@
 
 A module to group all the best hooks togheter.
 
-# Installing
-
 ## Prerequisites
 
 -   React 16.8 or greater
