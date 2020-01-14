@@ -18,6 +18,7 @@ yarn install moment-hooks
 # List of hooks
 
 -   [useOutsideClick](#useOutsideClick)
+-   [useArray](#useArray)
 -   [useDebounce](#useDebounce)
 -   [useWindowSize](#useWindowSize)
 -   [useQueryStringState](#useQueryStringState)
@@ -38,6 +39,32 @@ import { useOutsideClick } from 'moment-hooks';
 const ref = React.useRef();
 useOutsideClick(ref, () => console.log("On click outside"));
 ```
+
+## useArray
+
+makes handling of state array easier
+
+### Parameters
+
+1. The initial value of the array
+
+```Javascript
+import { useArray } from 'moment-hooks';
+
+const [list, actions] = useArray(["element 1"]);
+```
+
+### Return
+
+the hook returns an array with two elements
+
+1. The array stored in state
+2. The actions you can do on the array
+
+#### Actions
+
+1. push - Adds the first parameter of the funtion to the end of the array
+2. removeIndex - Removes the element at the index provided as the first parameter of the function
 
 ## useDebounce
 
