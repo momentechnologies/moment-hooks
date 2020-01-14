@@ -1,10 +1,23 @@
-# moment-hooks
-
 [![npm version](https://badge.fury.io/js/moment-hooks.svg)](https://badge.fury.io/js/moment-hooks)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+# moment-hooks
 
 A module to group all the best hooks togheter.
 
-# list of hooks
+# Installing
+
+## Prerequisites
+
+-   React 16.8 or greater
+
+## Install
+
+```
+yarn install moment-hooks
+```
+
+# List of hooks
 
 -   [useOutsideClick](#useOutsideClick)
 -   [useDebounce](#useDebounce)
