@@ -19,3 +19,8 @@ There are many ways you can contribute and all of them are well appreciated.
 
 If you come over a bug you can create a new issue with the `bug` tag. Before creating the issue please ensure that
 no similar issue has been reported.
+
+### New feature
+
+If you have written some code that you want in this repository you can create a pull request where
+you describe what you have done.
