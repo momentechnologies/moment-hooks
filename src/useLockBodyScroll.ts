@@ -1,9 +1,12 @@
 import React from 'react';
 
-export default () => {
+export default (hide: boolean = true) => {
     React.useLayoutEffect(() => {
         const originalStyle = window.getComputedStyle(document.body).overflow;
-        document.body.style.overflow = 'hidden';
-        return () => (document.body.style.overflow = originalStyle);
-    }, []);
+        document.body.style.overflow = hide === true ? 'hidden' : originalStyle;
+
+        return () => {
+            document.body.style.overflow = originalStyle;
+        };
+    }, [hide]);
 };

@@ -71,10 +71,26 @@ the hook returns an array with two elements
 
 Disables the scroll on body. Widely used in modals.
 
+###Parameters
+
+1. If it should be hidden. Defaults to true.
+
 ```Javascript
 import { useLockBodyScroll } from 'moment-hooks';
 
 useLockBodyScroll();
+```
+
+or if you have it in a modal
+
+```Javascript
+import { useLockBodyScroll } from 'moment-hooks';
+
+const Modal = ({ isOpen }) => {
+    useLockBodyScroll(isOpen);
+
+    return <div>Modal</div>;
+}
 ```
 
 ## useDebounce
