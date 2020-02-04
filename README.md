@@ -18,6 +18,7 @@ yarn install moment-hooks
 # List of hooks
 
 -   [useOutsideClick](#useOutsideClick)
+-   [useLockBodyScroll](#useLockBodyScroll)
 -   [useDebounce](#useDebounce)
 -   [useWindowSize](#useWindowSize)
 -   [useQueryStringState](#useQueryStringState)
@@ -37,6 +38,16 @@ import { useOutsideClick } from 'moment-hooks';
 
 const ref = React.useRef();
 useOutsideClick(ref, () => console.log("On click outside"));
+```
+
+## useLockBodyScroll
+
+Disables the scroll on body. Widely used in modals.
+
+```Javascript
+import { useLockBodyScroll } from 'moment-hooks';
+
+useLockBodyScroll();
 ```
 
 ## useDebounce
