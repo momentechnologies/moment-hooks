@@ -10,7 +10,7 @@
     "query"
   ],
   "author": "Max Moeschinger",
-  "license": "ISC",
+  "license": "MIT",
   "homepage": "https://github.com/momentechnologies/moment-hooks#readme",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
