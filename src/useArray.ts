@@ -2,13 +2,13 @@ import React from 'react';
 
 export default <T = any>(initialArray: T[]) => {
     const [value, setValue] = React.useState(initialArray);
-    const push = React.useCallback(a => {
-        setValue(v => [...v, ...(Array.isArray(a) ? a : [a])]);
+    const push = React.useCallback((a) => {
+        setValue((v) => [...v, ...(Array.isArray(a) ? a : [a])]);
     }, []);
 
     const removeIndex = React.useCallback(
         (index: number) =>
-            setValue(v => {
+            setValue((v) => {
                 const copy = v.slice();
                 copy.splice(index, 1);
                 return copy;

@@ -13,7 +13,7 @@ export default (name: string, props: IProps) => {
             const before: IProps = {};
             const after: IProps = {};
 
-            allKeys.forEach(key => {
+            allKeys.forEach((key) => {
                 if (
                     previousProps.current &&
                     previousProps.current[key] !== props[key]
