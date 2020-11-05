@@ -120,6 +120,20 @@ import { useWindowSize } from 'moment-hooks';
 const { width, height } = useWindowSize();
 ```
 
+## useSize
+
+returns the size of the reference
+
+```Javascript
+import { useSize } from 'moment-hooks';
+
+const { width, height } = useSize();
+```
+
+### Parameters
+
+1. ref: a React ref
+
 ## useQueryStringState
 
 Works the same as useState just that it stores it's state in the querystring of the url.
