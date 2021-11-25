@@ -25,5 +25,5 @@ export default <T = any>(initialArray: T[]) => {
         [push, removeIndex]
     );
 
-    return [value, actions];
+    return [value, actions] as [T[], typeof actions];
 };
