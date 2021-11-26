@@ -9,6 +9,9 @@ jobs:
         strategy:
             fail-fast: false
             matrix:
+                react:
+                    - 16.8.6
+                    - 17.0.0
                 node-version:
                     - 14
                     - 16
@@ -32,7 +35,10 @@ jobs:
                       ${{ runner.os }}-node-${{ matrix.node-version }}-yarn-
 
             - name: 'Yarn install'
-              run: yarn
+              run: yarn install --frozen-lockfile
+
+            - name: 'Set react version'
+              run: yarn add -D react@${{ matrix.react }} react-dom@${{ matrix.react }}
 
             - name: 'Run tests'
               run: yarn test
