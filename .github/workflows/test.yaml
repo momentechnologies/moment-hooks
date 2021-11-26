@@ -9,15 +9,19 @@ jobs:
         strategy:
             fail-fast: false
             matrix:
-                node-version:
+                react:
+                    - 16.8.6
+                    - 17.0.0
+                node:
                     - 14
                     - 16
+        name: 'Test (Node.js ${{ matrix.node }}, React ${{ matrix.react }})'
         steps:
             - uses: actions/checkout@v2
-            - name: Use Node.js ${{ matrix.node-version }}
+            - name: Use Node.js ${{ matrix.node }}
               uses: actions/setup-node@v2
               with:
-                  node-version: ${{ matrix.node-version }}
+                  node-version: ${{ matrix.node }}
 
             - name: Get yarn cache directory path
               id: yarn-cache-dir-path
@@ -27,12 +31,15 @@ jobs:
               id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
               with:
                   path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-                  key: ${{ runner.os }}-node-${{ matrix.node-version }}-yarn-${{ hashFiles('**/yarn.lock') }}
+                  key: ${{ runner.os }}-node-${{ matrix.node }}-react-${{ matrix.react }}-yarn-${{ hashFiles('**/yarn.lock') }}
                   restore-keys: |
-                      ${{ runner.os }}-node-${{ matrix.node-version }}-yarn-
+                      ${{ runner.os }}-node-${{ matrix.node }}-react-${{ matrix.react }}-yarn-
 
             - name: 'Yarn install'
-              run: yarn
+              run: yarn install --frozen-lockfile
+
+            - name: 'Set react version'
+              run: yarn add -D react@${{ matrix.react }} react-dom@${{ matrix.react }}
 
             - name: 'Run tests'
               run: yarn test
