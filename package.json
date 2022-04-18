@@ -39,7 +39,7 @@
   "devDependencies": {
     "@testing-library/react-hooks": "^7.0.2",
     "@types/jest": "^27.0.3",
-    "@types/react": "^17.0.37",
+    "@types/react": "^18.0.5",
     "@types/react-router-dom": "^5.3.2",
     "@types/resize-observer-browser": "^0.1.6",
     "jest": "^27.3.1",
