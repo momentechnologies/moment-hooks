@@ -2,7 +2,7 @@ import React from 'react';
 
 export default <T = any>(initialArray: T[]) => {
     const [value, setValue] = React.useState(initialArray);
-    const push = React.useCallback((a) => {
+    const push = React.useCallback((a: T) => {
         setValue((v) => [...v, ...(Array.isArray(a) ? a : [a])]);
     }, []);
 
