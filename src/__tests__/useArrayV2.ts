@@ -61,6 +61,6 @@ describe('useArray', () => {
             result.current.toggle('1');
         });
 
-        expect(result.current.value).toEqual(["1"]);
+        expect(result.current.value).toEqual(['1']);
     });
 });

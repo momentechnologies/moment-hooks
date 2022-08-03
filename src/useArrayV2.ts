@@ -3,7 +3,10 @@ import React from 'react';
 const defaultFinder = <T>(list: T[], item: T) =>
     list.findIndex((listItem) => listItem === item);
 
-const useArrayV2 = <T = any>(defaultValue: T[] = [], finder = defaultFinder) => {
+const useArrayV2 = <T = any>(
+    defaultValue: T[] = [],
+    finder = defaultFinder
+) => {
     const [value, setValue] = React.useState(defaultValue);
 
     const has = React.useCallback(
