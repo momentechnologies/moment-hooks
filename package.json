@@ -37,7 +37,7 @@
     "url": "https://github.com/momentechnologies/moment-hooks/issues"
   },
   "devDependencies": {
-    "@testing-library/react": "^13.3.0",
+    "@testing-library/react": "^14.0.0",
     "@types/jest": "^27.0.3",
     "@types/node": "^18.13.0",
     "@types/react-router-dom": "^5.3.2",
